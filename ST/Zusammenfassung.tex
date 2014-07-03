@@ -117,7 +117,7 @@
 \hline Eigenschaft & Formeln & Beschreibung \\
 \hline Modus & $\max(x_i)$ & Merkmalsausprägung die am Häufigsten vorkommt \\
 \hline Median & $x_{0.5}$ & $50\% \leq x$ \&\& $50\% \geq x$\\
-\hline \multirow{17}{*}{Arithmetisches Mittel $\overline{x}$} & \multirow{2}{*}{$= \frac{\text{Summe aller Merkmalswerte}}{\text{Anzahl aller Merkmalswerte}}$} & Ist ein Spezialfall des Erwartungswertes, mit gleicher Wahrscheinlichkeit für alle Elemente\\
+\hline \multirow{14}{*}{Arithmetisches Mittel $\overline{x}$} & \multirow{2}{*}{$= \frac{\text{Summe aller Merkmalswerte}}{\text{Anzahl aller Merkmalswerte}}$} & Ist ein Spezialfall des Erwartungswertes, mit gleicher Wahrscheinlichkeit für alle Elemente\\
 % & & \\
 \cline{2-3} & \multirow{2}{*}{$\overline{x} = \frac{1}{n} \sum\limits_{i=1}^{n} x_i$} & dabei sind die $x_i$ die Merkmalswerte, und n ist die Anzahl der Merkmalswerte, d.h. die Anzahl der Merkmalsträger)\\
 \cline{2-3} & \multirow{3}{*}{$\overline{x} = \frac{1}{n} \sum\limits_{i=1}^{k} x_i n_i$} & dabei ist $x_i$ die i-te Merkmalsausprägung, $n_i$ die absolute Häufigkeit der Ausprägung $x_i$ und k ist die Anzahl der verschiedenen Merkmalsausprägungen\\
@@ -146,8 +146,8 @@ $x_i$ das arithmetische Mittel in der i-ten Schicht,  $f_i$ den Anteil der Merkm
 \hline Spannweite & $\Delta = \max - \min $ & Differenz zwischen max. und min. Merkmalswerten \\
 \hline Quartilsabstand & $\Delta = x_{0.75} - x_{0.25}$ & Differenz zwischen den beiden Quartilen \\
 \hline \multirow{6}{*}{Varianz} & \multirow{2}{*}{$s^2$} & Mittlere quad. Abweichung vom Mittelwert, invariant gegenüber Verschiebungen\\
-\cline{2-3} & $= \frac{1}{n}\sum\limits_{i=1}^n (x_i - \overline{x})^2$ &  $= \frac{1}{n}\sum\limits_{i=1}^k (x_i - \overline{x})^2 n_i$ \hspace{4mm} $= \frac{1}{n}\sum\limits_{i=1}^k (x_i - \overline{x})^2 f_i$ \\
-\cline{2-3} & $= \frac{1}{n}\sum\limits_{i=1}^n x_i^2 - \overline{x}^2$ &  $= \frac{1}{n}\sum\limits_{i=1}^k x_i^2 n_i - \overline{x}^2$ \hspace{6mm} $= \frac{1}{n} \sum\limits_{i=1}^k x_i^2 f_i - \overline{x}^2$ \\
+\cline{2-3} & $= \frac{1}{n}\sum\limits_{i=1}^n (x_i - \overline{x})^2$ &  $= \frac{1}{n}\sum\limits_{i=1}^k (x_i - \overline{x})^2 n_i$ \hspace{4mm} $= \sum\limits_{i=1}^k (x_i - \overline{x})^2 f_i$ \\
+\cline{2-3} & $= \frac{1}{n}\sum\limits_{i=1}^n x_i^2 - \overline{x}^2$ &  $= \frac{1}{n}\sum\limits_{i=1}^k x_i^2 n_i - \overline{x}^2$ \hspace{6mm} $=  \sum\limits_{i=1}^k x_i^2 f_i - \overline{x}^2$ \\
 \cline{2-3} & $= \frac{1}{n - 1} \sum\limits_{i= 1}^n (x_i - \overline{x})^2$ & Bei Stichproben ein n weniger nehmen \\
 \hline \multirow{2}{*}{Standardabweichung} & \multirow{2}{*}{s = $\sqrt{s^2}$} & Mittlere Abweichung vom Mittelwert, invariant gegenüber Verschiebungen\\
 \hline Standardisierte Merkmale & $\overline{x} = 0$ und $s^2 = 1$ & Merkmalsverteilung gilt als Standardisiert \\
@@ -182,8 +182,9 @@ $x_i$ das arithmetische Mittel in der i-ten Schicht,  $f_i$ den Anteil der Merkm
 \hline Wahrscheinlichkeitsraum & $\Omega$ & Alle Ergebnisse, die stattfinden können\\
 \hline LaPlace-Wahrscheinlichkeit & $P(A) = \frac{\text{Anz. Elem in A}}{\text{Anz. Elem in }\Omega} = \frac{\sharp A}{\sharp \Omega}$ & Alles gleich wahrscheinlich\\
 \hline Bedingte Wahrscheinlichkeiten & $P(A_1 | A_2) = \frac{P(A_1 \cap A_2)}{P(A_2)}$ & Wahrscheinlichkeit für $A_1$ nachdem $A_2$ eingetreten \\
-%\hline\multirow{2}{*}{Axiome von Kolmogorov} & $P(A \cup B | C)$ & \\
-%\cline{2-3} & $= P(A|C) + P(B|C) - P(A\cap B | C)$ & \\
+\hline\multirow{3}{*}{Axiome von Kolmogorov} & $P(A \cup B) = P(A) + P(B)$ & Nur bei sich gegenseitig ausschliessenden Ereignissen\\
+\cline{2-3} & $P(A \cup B | C)$ & \\
+\cline{3-3} & $= P(A|C) + P(B|C) - P(A\cap B | C)$ & \\
 \hline Abhängigkeit & $P(A\cup B) = P(A) + P(B) - P(A)P(B)$ & \\
 \hline Unabhängigkeit & $P(A\cap B) = P(A)P(B)$ & \\
 \hline Totale Wahrscheinlichkeit & $P(B) = \sum\limits_{i=1}^mP(B\cap A_) = P(A_i)P(B|A_i)$ & \\
@@ -257,6 +258,7 @@ P($HIV^+$) = Prävalenz = Anteil Kranke an der Bevölkerung \newline
 \hline Varianz & $Var(X) = E((X - \mu_x)^2)$ & \\
 \cline{2-3} & $= \sum\limits_{i=1}^k(x_i - \mu_x)^2*p_i$ & \\
 \cline{2-3} & $=E(X^2) - E(X)^2$ &\\
+\cline{2-3} & $Var(aX + b) = Var(aX)$ & \\
 \hline
 \end{tabular}
 \caption{Begriffserklärungen: Diskrete Zufallsvariablen}
@@ -394,6 +396,30 @@ $(n+1)! = (n+1)*n! \leq (n+1)*n^n = n^{n+1} + n^n \leq (n+1)^{n+1}$
 \caption{Begriffserklärungen: Stetige Zufallsvariablen}
 \end{table}
 \normalRowSize
+
+\subsection{Normalverteilung}
+Gegeben ist $\mu = E(X)$, sowie $\sigma^2 = Var(X)$, z.B.: N($E(X)$, $Var(x)$) \newline
+Dies kann auf die Standardnormalverteilung $\mu = 0$, sowie $\sigma = 1$ zurückgerechnet werden: \newline
+$P(z = \frac{x - \mu}{\sigma}) = z_p$
+
+
+\subsubsection{Rechenbeispiel - Normalverteilung}
+N($4000$, $10^6$)
+\newline Wie hoch ist die Wahrscheinlichkeit für weniger als 3000? \newline
+\begin{table}[!h]
+\begin{tabular}{rl}
+$P(Z\leq \frac{3000 - 4000}{10^3})$ & $= z_p$ \\
+$P(Z \leq -1)$ & $= 1 - P(Z \geq 1)$ \\
+ & $= 1 - 0.84$ \\
+ & $= 0.16$
+\end{tabular}
+\end{table}
+
+\includepdf[page=1, angle=90]{./Source/Zusammenfassung_Verteilungen}
+
+\includepdf[page=2, angle=90]{./Source/Zusammenfassung_Verteilungen}
+
+
 
 \section{title}
 \end{document}
